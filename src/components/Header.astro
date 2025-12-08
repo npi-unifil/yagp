@@ -1,0 +1,24 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = 'NPI Unifil' } = Astro.props;
+---
+
+<header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
+  <nav class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10.5 1.5H5.75A2.25 2.25 0 003.5 3.75v12.5A2.25 2.25 0 005.75 18.5h8.5a2.25 2.25 0 002.25-2.25V8"></path>
+          <path d="M14 1.5v4m-3-4v4"></path>
+        </svg>
+        <h1 class="text-2xl font-bold">{title}</h1>
+      </div>
+      <ul class="flex gap-6 hidden md:flex">
+        <li><a href="/" class="hover:text-blue-200 transition">Início</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>

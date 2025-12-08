@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+export async function getStaticPaths() {
+  const politicas = await getCollection('politicas');
+
+  console.log('Políticas encontradas:', politicas); // Debug
+
+  return politicas.map(politica => ({
+    params: { slug: politica.slug },
+    props: { politica },
+  }));
+}
+
+interface Props {
+  politica: any;
+}
+
+const { politica } = Astro.props as Props;
+const { Content } = await politica.render();
+---
+
+<Layout title={politica.data.title}>
+<Header title="NPI Unifil" />
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <article class="prose prose-invert max-w-none">
+    <div class="pb-4">
+      <h1 class="text-4xl">{politica.data.title}</h1>
+      {politica.data.pubDate && (
+        <p class="text-gray-400 text-sm">
+          Publicado em: {politica.data.pubDate.toLocaleDateString('pt-BR')}
+        </p>
+      )}
+      </div>
+      <Content />
+    </article>
+  </main>
+</Layout>

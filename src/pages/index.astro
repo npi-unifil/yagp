@@ -1,0 +1,29 @@
+---
+import Header from '../components/Header.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="NPI Unifil - Núcleo de Práticas Interdisciplinares">
+	<Header title="NPI Unifil" />
+
+	<!-- Hero Section -->
+	<section class="bg-gradient-to-b from-blue-50 to-white py-20">
+		<div class="container mx-auto px-6 text-center">
+			<h2 class="text-5xl font-bold mb-4 text-gray-900">
+				Bem-vindo ao NPI Unifil
+			</h2>
+			<p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+				Transformamos ideias em soluções tecnológicas através da colaboração interdisciplinar
+			</p>
+		</div>
+	</section>
+
+	<About />
+	<!--Projects /-->
+	<!--CTA /-->
+	<Footer />
+</Layout>
